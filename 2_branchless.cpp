@@ -4,7 +4,6 @@
 #include <string>
 #include <sstream>
 
-// imagine needing if statements
 char check_scuffed_win(char outcome, char opponent)
 {
     return (!(outcome ^ 'X')) * ((!(opponent ^ 'A')) * 'Z' + (!(opponent ^ 'B')) * 'X' + (!(opponent ^ 'C')) * 'Y') + (!(outcome ^ 'Y')) * ((!(opponent ^ 'A')) * 'X' + (!(opponent ^ 'B')) * 'Y' + (!(opponent ^ 'C')) * 'Z') + (!(outcome ^ 'Z')) * ((!(opponent ^ 'A')) * 'Y' + (!(opponent ^ 'B')) * 'Z' + (!(opponent ^ 'C')) * 'X');
