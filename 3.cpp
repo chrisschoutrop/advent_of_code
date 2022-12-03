@@ -23,7 +23,8 @@ std::vector<std::string> read_input(std::string inputfile)
     }
     else
     {
-        std::cout << "könnte die Datei nicht öffnen" << std::endl;
+        std::cerr << "könnte die Datei nicht öffnen" << std::endl;
+        assert(false);
     }
     return output;
 }
@@ -33,6 +34,8 @@ std::array<std::string, 2> half_string(std::string input)
     std::array<std::string, 2> output;
     output[0] = input.substr(0, input.length() / 2);
     output[1] = input.substr(input.length() / 2);
+
+    //Überprüfen, ob die Teilung richtig durchgeführt wurde
     assert(output[0].size() + output[1].size() == input.size());
     return output;
 }
@@ -78,7 +81,7 @@ std::unordered_set<char> find_common_characters(std::string s1, std::string s2)
     }
     if (common.empty())
     {
-        // Es gibt keine gemeinsamen Buchstaben >:(
+        std::cerr << "Es gibt keine gemeinsamen Buchstaben >:(" << std::endl;
         assert(false);
     }
     return common;
@@ -88,6 +91,7 @@ char find_badge(std::array<std::string, 3> elves)
 {
     // Finde alle Gemeinsamkeiten zwischen 1 und 2
     std::unordered_set<char> common = find_common_characters(elves[0], elves[1]);
+
     // Finde alle Gemeinsamkeiten zwischen (1,2) und 3
     for (auto a : elves[2])
     {
@@ -97,17 +101,18 @@ char find_badge(std::array<std::string, 3> elves)
             return a;
         }
     }
-    // Es gibt keine gemeinsamen Buchstaben >:(
-    assert(false);    
+
+    std::cerr << "Es gibt keine gemeinsamen Buchstaben >:(" << std::endl;
+    assert(false);
     return -1;
 }
 
 int main()
 {
-     std::vector<std::string> rucksacks=read_input("3_input.txt");
-    //std::vector<std::string> rucksacks = read_input("3_test.txt");
+    std::vector<std::string> rucksacks = read_input("3_input.txt");
+    // std::vector<std::string> rucksacks = read_input("3_test.txt");
 
-    // Part 1
+    // Teil 1
     i64 sum = 0;
     for (auto s : rucksacks)
     {
@@ -117,7 +122,7 @@ int main()
     }
     std::cout << "sum: " << sum << std::endl;
 
-    // Part 2
+    // Teil 2
     sum = 0;
     for (i64 i = 0; i < rucksacks.size(); i += 3)
     {
