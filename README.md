@@ -23,3 +23,8 @@ The samples can be run by changing directory, inside build, to that specific puz
    cd 1
    ./1
 ```
+
+Tests can be run with
+```bash
+   ctest
+```
