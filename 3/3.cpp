@@ -8,6 +8,7 @@
 #include <cassert>
 
 typedef int64_t i64;
+typedef uint64_t u64;
 
 std::vector<std::string> read_input(std::string inputfile)
 {
@@ -177,7 +178,7 @@ int main()
 
     // Teil 2
     sum = 0;
-    for (i64 i = 0; i < rucksacks.size(); i += 3)
+    for (u64 i = 0; i < rucksacks.size(); i += 3)
     {
         std::array<std::string, 3> group{rucksacks[i], rucksacks[i + 1], rucksacks[i + 2]};
         char badge = find_badge(group);

@@ -186,7 +186,6 @@ int main()
     */
     std::string line;
     std::ifstream myfile("2_input.txt");
-    size_t pos = 0;
     std::string token;
     int64_t sum = 0;
     int64_t scuffed_sum = 0;
