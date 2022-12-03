@@ -159,7 +159,9 @@ void test()
 
 int main()
 {
+    // Tests
     test();
+
     std::vector<std::string> rucksacks = read_input("3_input.txt");
     // std::vector<std::string> rucksacks = read_input("3_test.txt");
 
